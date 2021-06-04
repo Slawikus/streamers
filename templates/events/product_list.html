@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'Product List' %}{% endblock title %}
+
+{% block content %}
+  <h2 class="mb-4">{% translate 'Here you can see all your products' %}</h2>
+
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total products</h5>
+        <p class="card-text">{{ products_qty }}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Sold items</h5>
+        <p class="card-text">{{ total_sold_qty }}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total revenue</h5>
+        <p class="card-text">${{ total_revenue }}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Avg revenue</h5>
+        <p class="card-text">${{ average_revenue_per_product }}</p>
+      </div>
+    </div>
+  </div>
+
+  {% if products %}
+    <table class="table mt-4">
+      <thead class="thead-light">
+       <tr>
+        <th scope="col">#</th>
+        <th scope="col">{% translate 'Picture' %}</th>
+        <th scope="col">{% translate 'Name' %}</th>
+        <th scope="col">{% translate 'Price' %}</th>
+        <th scope="col">{% translate 'Qty sold' %}</th>
+        <th scope="col">{% translate 'Revenue' %}</th>
+        <th scope="col">{% translate 'Actions' %}</th>
+       </tr>
+      </thead>
+      <tbody>
+      {% for product in products %}
+        <tr>
+          <td class="align-middle">{{ product.id }}</td>
+          {% if product.image %}
+            <td class="align-middle">
+              <img src="{{ product.image.url }}" alt="product image" style="max-width: 100px">
+            </td>
+          {% else %}
+            <td> </td>
+          {% endif %}
+          <td class="align-middle">{{ product.name }}</td>
+          <td class="align-middle">${{ product.price }}</td>
+          <td class="align-middle">{{ product.qty_sold }}</td>
+          <td class="align-middle">${{ product.revenue }}</td>
+          <td class="align-middle">
+            <a href="{% url 'product_update' product.pk %}">
+              <button type="button" class="btn btn-info">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+            </a>
+            <a href="{% url 'product_delete' product.pk %}">
+              <button type="button" class="btn btn-danger">
+                <i class="bi bi-x-square"></i>
+              </button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p class="mt-4">You haven't added any products yet. Create one!</p>
+    <a class="btn btn-primary my-2 my-sm-0" href="{% url 'product_create' %}">
+      <i class="bi bi-bag mr-1"></i>
+      Add product
+    </a>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block content %}
+  <h2 class="mb-4">{% translate 'Dashboard' %}</h2>
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total orders</h5>
+        <p class="card-text">{{ orders_qty }}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total revenue</h5>
+        <p class="card-text">${{ total_revenue }}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Average revenue per order</h5>
+        <p class="card-text">${{ average_revenue_per_order }}</p>
+      </div>
+    </div>
+  </div>
+
+  <p> </p>
+
+ <table class="table">
+   <thead class="thead-light">
+     <tr>
+       <th scope="col">#</th>
+       <th scope="col">{% translate 'Ordered at' %}</th>
+       <th scope="col">{% translate 'Buyer' %}</th>
+       <th scope="col">{% translate 'Product' %}</th>
+       <th scope="col">{% translate 'Amount' %}</th>
+       <th scope="col">{% translate 'Stream' %}</th>
+     </tr>
+     </thead>
+     <tbody>
+
+       {% for order in orders %}
+         <tr>
+           <td>{{ order.id }}</td>
+           <td>{{ order.order_time }}</td>
+           <td>{{ order.email }}</td>
+           <td>
+             {{ order.product }}
+             <a href="{% url "product_update" order.product.pk %}">
+               <i class="bi bi-arrow-right-circle"></i>
+             </a>
+           </td>
+           <td>${{ order.product.price }}</td>
+           <td>
+             {{ order.event.name }}
+             <a href="{% url "event_detail" order.event.pk %}">
+               <i class="bi bi-arrow-right-circle"></i>
+             </a>
+           </td>
+         </tr>
+       {% endfor %}
+     </tbody>
+    </table>
+
+     <p> </p>
+
+  {% if events %}
+    {% for event in events %}
+<div class="row">
+  <div class="col-sm-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ event.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          {{ event.event_starts }}
+          {% if not past %}
+            (in {{ event.event_starts|timeuntil }})
+          {% endif %}
+        </h6>
+        <p class="card-text">{{ event.description|safe }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    {% endfor %}
+ {% endif %}
+
+{% endblock %}

@@ -1,0 +1,8 @@
+{% load i18n %}
+
+{% if url_argument %}
+    <a class="btn btn-secondary" href={% url url_name url_argument %}>{% translate 'Cancel' %}</a>
+{% else %}
+    <a class="btn btn-secondary" href={% url url_name %}>{% translate 'Cancel' %}</a>
+{% endif %}
+

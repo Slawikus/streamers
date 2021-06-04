@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% block title %}{% translate 'Log In' %}{% endblock %}
+
+{% block content %}
+<h2>{% translate 'Log In' %}</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button class="btn btn-success" type="submit">{% translate 'Log In' %}</button>
+</form>
+<div class="social">
+  <ul>
+    <li>
+      <p><a href="{% provider_login_url "facebook" method="oauth2" %}" target="blank">Facebook OAuth2 Login</a></p>
+
+    </li>
+  </ul>
+</div>
+{% endblock %}

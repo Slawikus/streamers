@@ -1,0 +1,46 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-allauth = "*"
+dj-database-url = "*"
+psycopg2 = "*"
+gunicorn = "*"
+whitenoise = "*"
+django-crispy-forms = "*"
+pillow = "*"
+django-extensions = "*"
+ipython = "*"
+django-filter = "*"
+django-bootstrap4 = "*"
+django-bootstrap-datepicker-plus = "*"
+factory-boy = "*"
+django-ckeditor = "*"
+django-mapbox-location-field = "*"
+faker = "*"
+xhtml2pdf = "*"
+xlsxwriter = "*"
+flake8 = "*"
+black = "*"
+django-phonenumber-field = {extras = ["phonenumbers"], version = "*"}
+djangorestframework = "*"
+dj-rest-auth = "*"
+djangorestframework-simplejwt = "*"
+django-sendgrid-v5 = "*"
+qrcode = "*"
+social-auth-app-django = "*"
+django-resized = "*"
+channels-redis = "*"
+channels = "*"
+django-autocomplete-light = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

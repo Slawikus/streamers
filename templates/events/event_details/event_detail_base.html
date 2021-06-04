@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  {% if request.user == event.host %}
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a
+            class="nav-link {% block event_detail_tab %}{% endblock %}"
+            href="{% url 'event_detail' event.pk %}"
+        >
+          {% translate "Detail" %}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+            class="nav-link {% block event_todos_tab %}{% endblock %}"
+            href="{% url 'event_todos' event.pk %}"
+        >
+          {% translate "Todos" %}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+            class="nav-link {% block event_guests_tab %}{% endblock %}"
+            href="{% url 'event_guests' event.pk %}"
+        >
+          {% translate "Guests" %}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+            class="nav-link disabled {% block event_vendors_tab %}{% endblock %}"
+            href="#"
+        >
+          {% translate "Vendors" %}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+            class="nav-link {% block event_budget_tab %}{% endblock %}"
+            href="{% url 'budget_detail' event.pk %}"
+        >
+          {% translate "Budget" %}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+            class="nav-link {% block event_comments_tab %}{% endblock %}"
+            href="{% url 'event_comments' event.pk %}"
+        >
+          {% translate "Comments" %}
+        </a>
+      </li>
+      {% if event.is_ticket_required %}
+      <li class="nav-item">
+        <a
+            class="nav-link {% block event_tickets_tab %}{% endblock %}"
+            href="{% url 'event_ticket_types' event.pk %}"
+        >
+          {% translate "Tickets" %}
+        </a>
+      </li>
+      {% else %}
+          <li class="nav-item">
+        <a
+            class="nav-link disabled"
+            href="#"
+        >
+          {% translate "Tickets" %}
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+    <br>
+  {% endif %}
+
+  {% block tab_content %}
+  {% endblock tab_content %}
+{% endblock content %}

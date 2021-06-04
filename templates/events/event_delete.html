@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% translate 'Delete stream' %}{% endblock title %}
+
+{% block content %}
+    <h1>{% translate 'Delete event' %}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>{% translate 'Are you sure you want to delete ' %}"{{ event.name }}"?</p>
+        <input type="submit" class="btn btn-danger" value="{% translate 'Confirm' %}">
+        {% include "_cancel_button.html" with url_name='event_detail' url_argument=event.pk %}
+    </form>
+
+{% endblock content %}

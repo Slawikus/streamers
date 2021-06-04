@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load i18n crispy_forms_tags %}
+
+{% block title %}{% translate 'Event Details' %}{% endblock title %}
+
+{% block content %}
+
+<div class="card text-center">
+  <div class="card-header">
+    <h2>{{ event.name }}</h2>
+  </div>
+  <div class="card-footer text-muted">
+    {{ event.host.get_short_name }} | {{ event.event_starts }}
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <img src="{{ event.product.image.url }}" alt="product image">
+          <p>
+            {{ event.product.name }} | <strong>${{ event.product.price }}</strong>
+          </p>
+        </div>
+        <div class="col-6">
+          <p class="card-text">{{ event.description|safe }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    {% if request.user == event.host %}
+      <p>
+        <a
+            class="btn btn-info"
+            data-toggle="collapse"
+            href="#multiCollapseExample1"
+            role="button"
+            aria-expanded="false"
+            aria-controls="multiCollapseExample1"
+        >
+          Order link to share
+        </a>
+        <button
+            class="btn btn-info"
+            type="button"
+            data-toggle="collapse"
+            data-target="#multiCollapseExample2"
+            aria-expanded="false"
+            aria-controls="multiCollapseExample2">
+          QR code to share
+        </button>
+        <a class="btn btn-primary" href="{% url 'event_edit' event.pk %}">{% translate 'Edit stream' %}</a>
+        <a class="btn btn-danger" href="{% url 'event_delete' event.pk %}">{% translate 'Delete stream' %}</a>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <div class="card card-body">
+              <a href="{% url 'public_event_detail_view' event.shareable_id %}" >{{ event.get_absolute_uuid_url }}</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <div class="card card-body">
+              <img src="{{ event.qr_code.url }}">
+            </div>
+          </div>
+        </div>
+      </div>
+  {% endif %}
+  </div>
+</div>
+
+  <h3 class="mt-4">Orders:</h3>
+
+  <table class="table">
+    <thead class="thead-light">
+     <tr>
+      <th scope="col">#</th>
+      <th scope="col">{% translate 'Ordered at' %}</th>
+      <th scope="col">{% translate 'Buyer' %}</th>
+      <th scope="col">{% translate 'Product' %}</th>
+      <th scope="col">{% translate 'Amount' %}</th>
+     </tr>
+    </thead>
+    <tbody id="orders">
+      {% for order in orders %}
+        <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.order_time}} ({{ order.order_time|timesince }} ago)</td>
+          <td>{{ order.email }}</td>
+          <td>
+            {{ order.product }}
+            <a href="{% url "product_update" order.product.pk %}">
+              <i class="bi bi-arrow-right-circle"></i>
+            </a>
+          </td>
+          <td>${{ order.product.price }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <script>
+    var socket = new WebSocket("ws://localhost:8000/ws/streams/{{ event.pk }}/");
+
+    socket.onopen = function(e) {
+        console.log('Connected');
+    };
+
+    socket.onclose = function(e) {
+        console.log('Disconnected');
+    };
+
+    socket.onmessage = function(e) {
+        var data = JSON.parse(e.data);
+        var payload = data.payload;
+
+        var element_id = `order_${payload.id}`;
+        var highlightClass = "table-primary";
+
+        var tag = document.createElement("tr");
+        tag.setAttribute("id", element_id);
+        tag.setAttribute("class", highlightClass);
+
+        var td_id = document.createElement("td");
+        var text = document.createTextNode(payload.id);
+        td_id.appendChild(text);
+        tag.appendChild(td_id);
+
+        var td_ordered_at = document.createElement("td");
+        text = document.createTextNode(
+            `${payload.ordered_at_date}, ${payload.ordered_at_time} (${payload.ordered_at_timesince})`
+        );
+        td_ordered_at.appendChild(text);
+        tag.appendChild(td_ordered_at);
+
+        var td_buyer = document.createElement("td");
+        text = document.createTextNode(payload.buyer);
+        td_buyer.appendChild(text);
+        tag.appendChild(td_buyer);
+
+        var td_product = document.createElement("td");
+        text = document.createTextNode(payload.product);
+        td_product.appendChild(text);
+        tag.appendChild(td_product);
+
+        var td_amount = document.createElement("td");
+        text = document.createTextNode(`\$${payload.amount}`);
+        td_amount.appendChild(text);
+        tag.appendChild(td_amount);
+
+        var element = document.getElementById("orders");
+        element.prepend(tag);
+
+        $("#" + element_id).delay(5000).queue(function(){
+          $(this).removeClass(highlightClass);
+        });
+    };
+  </script>
+{% endblock %}

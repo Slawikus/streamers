@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Auction - orders{% endblock title %}
+
+{% block content %}
+  <h2 class="mb-4">{% translate 'Here you can see all your orders' %}</h2>
+
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total orders</h5>
+        <p class="card-text">{{ orders_qty }}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total revenue</h5>
+        <p class="card-text">${{ total_revenue }}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Average revenue per order</h5>
+        <p class="card-text">${{ average_revenue_per_order }}</p>
+      </div>
+    </div>
+  </div>
+
+  {% if orders %}
+    <table class="table mt-4">
+      <thead class="thead-light">
+       <tr>
+        <th scope="col">#</th>
+        <th scope="col">{% translate 'Ordered at' %}</th>
+        <th scope="col">{% translate 'Buyer' %}</th>
+        <th scope="col">{% translate 'Product' %}</th>
+        <th scope="col">{% translate 'Amount' %}</th>
+        <th scope="col">{% translate 'Stream' %}</th>
+       </tr>
+      </thead>
+      <tbody>
+      {% for order in orders %}
+        <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.order_time }}</td>
+          <td>{{ order.email }}</td>
+          <td>
+            {{ order.product }}
+            <a href="{% url "product_update" order.product.pk %}">
+              <i class="bi bi-arrow-right-circle"></i>
+            </a>
+          </td>
+          <td>${{ order.product.price }}</td>
+          <td>
+            {{ order.event.name }}
+            <a href="{% url "event_detail" order.event.pk %}">
+              <i class="bi bi-arrow-right-circle"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p class="mt-4">You have no orders yet. Create a stream and start selling!</p>
+    <a class="btn btn-info my-2 my-sm-0 mr-2" href="{% url 'event_new' %}">
+      <i class="bi bi-camera-video mr-1"></i>
+      Add stream
+    </a>
+  {% endif %}
+{% endblock %}

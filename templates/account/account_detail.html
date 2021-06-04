@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}{% translate 'Profile' %}{% endblock title %}
+
+{% block content %}
+  <h2 class="mb-4">{{ user.get_short_name }}</h2>
+  <p><b>{% translate 'Email: ' %}</b>{{ user.email }}</p>
+  <p><b>{% translate 'PayPal email: ' %}</b>{{ user.paypal_email }}</p>
+  {% if request.user == user %}
+    <a class="btn btn-primary mt-4" href="{% url 'account_edit' user.pk %}">
+      Update profile
+    </a>
+  {% endif %}
+{% endblock content %}

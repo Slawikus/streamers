@@ -1,0 +1,307 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-12 20:44+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: events/models.py:11
+msgid "Party"
+msgstr "Вечеринка"
+
+#: events/models.py:12
+msgid "Food 'n Drinks"
+msgstr "Еда и Напитки"
+
+#: events/models.py:13
+msgid "Sports"
+msgstr "Спорт"
+
+#: events/models.py:14
+msgid "Educational"
+msgstr "Образование"
+
+#: events/models.py:15
+msgid "Arts"
+msgstr "Искусство"
+
+#: events/models.py:16
+msgid "Business"
+msgstr "Бизнес"
+
+#: events/models.py:17
+msgid "Social Gathering"
+msgstr "Общественные собрания "
+
+#: events/models.py:18
+msgid "Religious"
+msgstr "Религия"
+
+#: events/models.py:19
+msgid "Political"
+msgstr "Политика"
+
+#: events/models.py:20
+msgid "Gaming"
+msgstr "Игры"
+
+#: events/models.py:21
+msgid "Family"
+msgstr "Семья"
+
+#: events/models.py:22
+msgid "Wedding"
+msgstr "Свадьба"
+
+#: events/models.py:23
+msgid "Other"
+msgstr "Другое"
+
+#: events/models.py:28
+msgid "Event name"
+msgstr "Событие: "
+
+#: events/models.py:29
+msgid "Date"
+msgstr "Дата"
+
+#: events/models.py:30
+msgid "Time"
+msgstr "Время"
+
+#: events/models.py:31
+msgid "Is private"
+msgstr "Приватное"
+
+#: events/models.py:32
+msgid "Event picture"
+msgstr "Событие: "
+
+#: events/models.py:34 todos/models.py:8
+msgid "Description"
+msgstr "Описание"
+
+#: events/models.py:35
+msgid "Venue"
+msgstr "Место"
+
+#: events/models.py:44 todos/models.py:28
+#, fuzzy
+#| msgid "Event: "
+msgid "Event type"
+msgstr "Событие: "
+
+#: templates/account/login.html:6 templates/account/login.html:9
+#: templates/account/login.html:13
+msgid "Log In"
+msgstr "Войти"
+
+#: templates/account/signup.html:6 templates/account/signup.html:9
+#: templates/account/signup.html:13
+msgid "Sign Up"
+msgstr "Зарегестрироваться"
+
+#: templates/base.html:36 templates/events/all_events_list.html:4
+msgid "Events"
+msgstr "События"
+
+#: templates/base.html:39 templates/events/my_events.html:4
+msgid "My Events"
+msgstr "Мои события"
+
+#: templates/base.html:42 templates/events/joined_events.html:4
+msgid "Joined Events"
+msgstr "Ожидаемые события"
+
+#: templates/base.html:45
+msgid "Todos"
+msgstr "ТуДу"
+
+#: templates/base.html:48 templates/todos/todo_new.html:6
+#: templates/todos/todo_new.html:14
+msgid "Create ToDo"
+msgstr "Создать ТуДу"
+
+#: templates/base.html:51 templates/events/event_new.html:6
+#: templates/events/event_new.html:10
+msgid "Add New Event"
+msgstr "Добавить новое событие"
+
+#: templates/base.html:76
+msgid "Logout"
+msgstr "Выйти"
+
+#: templates/base.html:78
+msgid "Signup"
+msgstr "Зарегестрироваться"
+
+#: templates/base.html:79
+msgid "Login"
+msgstr "Войти"
+
+#: templates/events/all_events_list.html:7
+msgid "Here you can see all public events"
+msgstr "Здесь вы можете увидеть все публичные события"
+
+#: templates/events/all_events_list.html:8
+msgid "And if you want, you can join them!"
+msgstr "И если хотите, присоедениться к ним!"
+
+#: templates/events/event_card.html:18
+msgid "Details"
+msgstr "Детали"
+
+#: templates/events/event_delete.html:6
+msgid "Delete event"
+msgstr "Удалить событие"
+
+#: templates/events/event_delete.html:9 templates/todos/todo_delete.html:9
+msgid "Are you sure you want to delete "
+msgstr "Вы уверены что хотите удалить"
+
+#: templates/events/event_delete.html:10 templates/todos/todo_delete.html:10
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: templates/events/event_detail.html:7
+msgid "By"
+msgstr "Создал"
+
+#: templates/events/event_detail.html:11
+msgid "Description: "
+msgstr "Описание: "
+
+#: templates/events/event_detail.html:12
+msgid "Event type: "
+msgstr "Событие: "
+
+#: templates/events/event_detail.html:13
+msgid "Where: "
+msgstr "Где: "
+
+#: templates/events/event_detail.html:14 templates/todos/todo_list_view.html:15
+msgid "ToDo: "
+msgstr "ТуДу: "
+
+#: templates/events/event_detail.html:20
+msgid "Tap here to join this event"
+msgstr "Нажмите что бы присоединиться к событию"
+
+#: templates/events/event_detail.html:23
+msgid "Attend"
+msgstr "Учавствовать"
+
+#: templates/events/event_detail.html:26 templates/events/event_edit.html:7
+msgid "Edit"
+msgstr "Исправить"
+
+#: templates/events/event_detail.html:27 templates/todos/todo_list_view.html:37
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/events/event_detail.html:31
+msgid "Back to "
+msgstr "Назад к "
+
+#: templates/events/event_detail.html:31
+msgid "All Events"
+msgstr "Все события"
+
+#: templates/events/event_edit.html:12 templates/todos/todo_list_view.html:37
+#: templates/todos/todo_update.html:8 templates/todos/todo_update.html:12
+msgid "Update"
+msgstr "Обновить"
+
+#: templates/events/event_new.html:14
+msgid "Add Event"
+msgstr "Добавить Событие"
+
+#: templates/events/joined_events.html:7
+msgid "Here you can find the events you have been joined"
+msgstr "Здесь вы можете посмотреть ожидаемые события"
+
+#: templates/events/my_events.html:7
+msgid "Here you can find the events you created"
+msgstr "Здесь вы можете увидеть созданные события"
+
+#: templates/home.html:7
+msgid "Hello"
+msgstr "Привет"
+
+#: templates/home.html:9
+msgid "Please login or signup"
+msgstr "Пожалуйста войдите или зарегестрируйтесь"
+
+#: templates/todos/todo_delete.html:6
+msgid "Delete todo"
+msgstr "Удалить ТуДу"
+
+#: templates/todos/todo_list_view.html:5
+msgid "ToDo List"
+msgstr "Список ТуДу"
+
+#: templates/todos/todo_list_view.html:9
+msgid "Here you can see your ToDo"
+msgstr "Здесь вы можете увидеть ваши ТуДу"
+
+#: templates/todos/todo_list_view.html:21
+msgid "Do until: "
+msgstr "Сделать до: "
+
+#: templates/todos/todo_list_view.html:25
+msgid "Is completed: "
+msgstr "Статус: "
+
+#: templates/todos/todo_list_view.html:29
+msgid "Is important: "
+msgstr "Приоритетное: "
+
+#: templates/todos/todo_list_view.html:33
+msgid "Event: "
+msgstr "Событие: "
+
+#: templates/todos/todo_new.html:10
+msgid "Add New ToDo"
+msgstr "Добавить новое ТуДу"
+
+#: todos/models.py:9
+msgid "Is important"
+msgstr "Приоритетное"
+
+#: todos/models.py:19
+msgid "Deadline"
+msgstr "Дедлайн"
+
+#: todos/models.py:20
+#, fuzzy
+#| msgid "Is completed: "
+msgid "Is completed"
+msgstr "Статус: "
+
+#: todos/models.py:21
+msgid "Event"
+msgstr "Событие"
+
+#~ msgid "Name"
+#~ msgstr "Название"
+
+#~ msgid "Photo"
+#~ msgstr "Фотография"
+
+#~ msgid "Is complited"
+#~ msgstr "Статус"

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+<div class="jumbotron bg-light">
+  <div class="container">
+    <h1 class="display-4" >{% translate 'Hello,' %} {{ user.get_short_name }}</h1>
+    <p class="lead">Glad to see you</p>
+    <a  class="btn btn-primary btn-lg" href="{% url 'product_create' %}">{% translate 'Add product' %}</a>
+    <a  class="btn btn-primary btn-lg" href="{% url 'dashboard_list' %}">{% translate 'Your dashboard' %}</a>
+  </div>
+</div>
+    {% else %}
+        <p>{% translate 'Please login or signup' %}</p>
+    {% endif %}
+
+{% endblock %}
+

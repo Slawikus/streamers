@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load i18n crispy_forms_filters %}
+
+{% block title %} Add stream{% endblock %}
+
+{% block content %}
+ {{ form.media }}
+ <h1>Add stream</h1>
+ <form action="" method="POST" enctype="multipart/form-data">
+   {% csrf_token %}
+   {% if form.errors %}
+     {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+     {% endfor %}
+     {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+     {% endfor %}
+   {% endif %}
+   {{ form | crispy }}
+
+   <button class="btn btn-success" type="submit">{% translate 'Add stream' %}</button>
+   {% include "_cancel_button.html" with url_name='home' %}
+ </form>
+
+{% endblock content %}

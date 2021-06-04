@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate 'Edit profile' %}{% endblock title %}
+
+{% block content %}
+    <h1>{% translate 'Edit' %}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form | crispy }}
+        <button class="btn btn-info ml-2" type="submit">{% translate 'Update' %}</button>
+        {% include "_cancel_button.html" with url_name='account_detail' url_argument=request.user.pk %}
+    </form>
+
+{% endblock content %}

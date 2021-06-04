@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n crispy_forms_filters %}
+
+{% block title %}{% translate 'Edit Product' %}{% endblock title %}
+
+{% block content %}
+    <h1>{% translate 'Edit product' %}</h1>
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form | crispy }}
+      <button class="btn btn-info" type="submit">{% translate 'Update' %}</button>
+      {% include "_cancel_button.html" with url_name='product_list' %}
+    </form>
+{% endblock content %}

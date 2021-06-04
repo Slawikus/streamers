@@ -1,0 +1,280 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-03 13:42+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: events/models.py:11
+msgid "Party"
+msgstr ""
+
+#: events/models.py:12
+msgid "Food 'n Drinks"
+msgstr ""
+
+#: events/models.py:13
+msgid "Sports"
+msgstr ""
+
+#: events/models.py:14
+msgid "Educational"
+msgstr ""
+
+#: events/models.py:15
+msgid "Arts"
+msgstr ""
+
+#: events/models.py:16
+msgid "Business"
+msgstr ""
+
+#: events/models.py:17
+msgid "Social Gathering"
+msgstr ""
+
+#: events/models.py:18
+msgid "Religious"
+msgstr ""
+
+#: events/models.py:19
+msgid "Political"
+msgstr ""
+
+#: events/models.py:20
+msgid "Gaming"
+msgstr ""
+
+#: events/models.py:21
+msgid "Family"
+msgstr ""
+
+#: events/models.py:22
+msgid "Wedding"
+msgstr ""
+
+#: events/models.py:23
+msgid "Other"
+msgstr ""
+
+#: events/models.py:37
+msgid "Event name"
+msgstr ""
+
+#: events/models.py:38
+msgid "Date"
+msgstr ""
+
+#: events/models.py:39
+msgid "Is private"
+msgstr ""
+
+#: events/models.py:40
+msgid "Event picture"
+msgstr ""
+
+#: events/models.py:41 todos/models.py:7
+msgid "Description"
+msgstr ""
+
+#: events/models.py:42
+msgid "Venue"
+msgstr ""
+
+#: events/models.py:51
+msgid "Event type"
+msgstr ""
+
+#: templates/account/login.html:6 templates/account/login.html:9
+#: templates/account/login.html:13
+msgid "Log In"
+msgstr ""
+
+#: templates/account/signup.html:6 templates/account/signup.html:9
+#: templates/account/signup.html:13
+msgid "Sign Up"
+msgstr ""
+
+#: templates/base.html:34 templates/events/base_events_list.html:5
+msgid "Events"
+msgstr ""
+
+#: templates/base.html:37 templates/events/my_events.html:5
+msgid "My Events"
+msgstr ""
+
+#: templates/base.html:40 templates/events/joined_events.html:6
+msgid "Joined Events"
+msgstr ""
+
+#: templates/base.html:43
+msgid "Todos"
+msgstr ""
+
+#: templates/base.html:46 templates/todos/todo_new.html:6
+#: templates/todos/todo_new.html:13
+msgid "Create ToDo"
+msgstr ""
+
+#: templates/base.html:49 templates/events/event_new.html:6
+#: templates/events/event_new.html:9
+msgid "Add New Event"
+msgstr ""
+
+#: templates/base.html:74
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:76
+msgid "Signup"
+msgstr ""
+
+#: templates/base.html:77
+msgid "Login"
+msgstr ""
+
+#: templates/events/base_events_list.html:9
+msgid "Here you can see all public events"
+msgstr ""
+
+#: templates/events/base_events_list.html:10
+msgid "And if you want, you can join them!"
+msgstr ""
+
+#: templates/events/base_events_list.html:29
+msgid "Details"
+msgstr ""
+
+#: templates/events/event_detail.html:7
+msgid "By"
+msgstr ""
+
+#: templates/events/event_detail.html:11
+msgid "Description: "
+msgstr ""
+
+#: templates/events/event_detail.html:12
+msgid "Event type: "
+msgstr ""
+
+#: templates/events/event_detail.html:13
+msgid "Where: "
+msgstr ""
+
+#: templates/events/event_detail.html:14
+msgid "Tap here to join this event"
+msgstr ""
+
+#: templates/events/event_detail.html:17
+msgid "Attend"
+msgstr ""
+
+#: templates/events/event_detail.html:20 templates/events/event_edit.html:7
+msgid "Edit"
+msgstr ""
+
+#: templates/events/event_detail.html:24
+msgid "Back to "
+msgstr ""
+
+#: templates/events/event_detail.html:24
+msgid "All Events"
+msgstr ""
+
+#: templates/events/event_edit.html:11 templates/todos/todo_list_view.html:37
+#: templates/todos/todo_update.html:7 templates/todos/todo_update.html:11
+msgid "Update"
+msgstr ""
+
+#: templates/events/event_new.html:13
+msgid "Add Event"
+msgstr ""
+
+#: templates/events/joined_events.html:9
+msgid "Here you can find the events you have been joined"
+msgstr ""
+
+#: templates/events/my_events.html:8
+msgid "Here you can find the events you created"
+msgstr ""
+
+#: templates/home.html:7
+msgid "Hello"
+msgstr ""
+
+#: templates/home.html:9
+msgid "Please login or signup"
+msgstr ""
+
+#: templates/todos/todo_delete.html:6
+msgid "Delete todo"
+msgstr ""
+
+#: templates/todos/todo_delete.html:9
+msgid "Are you sure you want to delete "
+msgstr ""
+
+#: templates/todos/todo_list_view.html:5
+msgid "ToDo List"
+msgstr ""
+
+#: templates/todos/todo_list_view.html:9
+msgid "Here you can see your ToDo"
+msgstr ""
+
+#: templates/todos/todo_list_view.html:15
+msgid "ToDo: "
+msgstr ""
+
+#: templates/todos/todo_list_view.html:21
+msgid "Do until: "
+msgstr ""
+
+#: templates/todos/todo_list_view.html:25
+msgid "Is completed: "
+msgstr ""
+
+#: templates/todos/todo_list_view.html:29
+msgid "Is important: "
+msgstr ""
+
+#: templates/todos/todo_list_view.html:33
+msgid "Event: "
+msgstr ""
+
+#: templates/todos/todo_list_view.html:37
+msgid "Delete"
+msgstr ""
+
+#: templates/todos/todo_new.html:9
+msgid "Add New ToDo"
+msgstr ""
+
+#: todos/models.py:8
+msgid "Deadline"
+msgstr ""
+
+#: todos/models.py:9
+msgid "Is completed"
+msgstr ""
+
+#: todos/models.py:10
+msgid "Is important"
+msgstr ""
+
+#: todos/models.py:11
+msgid "Event"
+msgstr ""

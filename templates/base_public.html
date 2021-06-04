@@ -1,0 +1,28 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load bootstrap4 %}
+    {% bootstrap_javascript jquery='full' %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'events/app.css' %}">
+    <link rel="stylesheet" href="{% static 'events/minty.css' %}">
+    <title>{% block title %}Auction{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand mb-0 h1" href="/">Auction</a>
+      </nav>
+    </header>
+
+    <div class="container mt-4">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
